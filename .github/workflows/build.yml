@@ -72,6 +72,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: powershell
       run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Kenanvdh_SOA_3" /o:"kenanvdh" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"Kenanvdh_AvansDevOps" /o:"kenanvdh" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build $env:Solution_Name
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
