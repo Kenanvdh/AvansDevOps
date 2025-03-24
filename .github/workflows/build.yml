@@ -15,7 +15,7 @@ jobs:
     runs-on: windows-latest
 
     env:
-      Solution_Name: AvansDevOps/AvansDevOps.sln  
+      Solution_Name: AvansDevOps.sln  
       Test_Project_Path: AvansDevOps.Test/AvansDevOps.Test.csproj
       
     steps:
