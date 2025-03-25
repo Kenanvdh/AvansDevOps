@@ -1,4 +1,4 @@
-﻿namespace AvansDevOps
+﻿namespace Report
 {
     public class Class1
     {
