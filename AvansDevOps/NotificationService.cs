@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Notificator
+﻿namespace Notificator
 {
-    internal class NotificationService
+    public class NotificationService : IObserver
     {
+        private List<IObserver> Observers { get; set; }
+
+        public void addObserver(IObserver observer)
+        {
+            Observers.Add(observer);
+        }
+
+        public void NotifyObservers()
+        {
+            
+        }
+
+        public void Update()
+        {
+
+        }
     }
 }

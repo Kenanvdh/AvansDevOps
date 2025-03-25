@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevOps
+﻿namespace DevOps
 {
-    internal class Activity
+    public class Activity
     {
+        private string Name { get; set; }
+        private string Description { get; set; }
+        private bool Completed { get; set; }
+
+        public bool MarkCompleted()
+        {            
+            return Completed;
+        }
     }
 }

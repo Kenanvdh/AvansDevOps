@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevOps
+﻿namespace DevOps
 {
-    internal class BacklogItem
+    public class BacklogItem
     {
+        private string Title { get; set; }
+        private string Description { get; set; }
+        private List<Activity> Activities { get; set; }
+
+        public void ChangeState(BacklogItemState state)
+        {
+            // Change the state of the backlog item
+        }
     }
 }
