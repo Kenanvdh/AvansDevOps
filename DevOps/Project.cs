@@ -10,6 +10,7 @@
         public void CreateSprint(string name, DateOnly startDate, DateOnly endDate)
         {
             Sprints.Add(new Sprint(name, startDate, endDate));
+            Console.WriteLine($"Sprint {name} created.");
         }
     }
 }
