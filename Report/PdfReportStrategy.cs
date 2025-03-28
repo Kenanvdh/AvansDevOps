@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevOps;
 
 namespace Report
 {
-    internal class PdfReportStrategy
+    public class PdfReportStrategy : IReportStrategy
     {
+        public void GenerateReport(Sprint sprint)
+        {
+        }
     }
 }

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AvansDevOps.Domain;
 
 namespace Notificator
 {
-    internal class Notification
+    public class Notification
     {
+        public string Message { get; set; }
+        public User Recipient { get; set; }
+
+        public void SendNotification()
+        {
+            // Send notification
+        }
     }
 }

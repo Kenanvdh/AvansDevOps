@@ -1,7 +1,7 @@
 ﻿namespace Notificator
 {
-    public class Class1
+    public interface IObserver
     {
-
+        public void Update(NotificationService service);
     }
 }

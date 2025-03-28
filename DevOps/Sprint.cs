@@ -1,12 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevOps
+﻿namespace DevOps
 {
-    internal class Sprint
+    public class Sprint
     {
+        private string Name { get; set; }
+        private DateOnly StartDate { get; set; }
+        private DateOnly EndDate { get; set; }
+        private List<BacklogItem> BacklogItems { get; set; }
+        private SprintState State { get; set; }
+
+        public Sprint(string name, DateOnly startDate, DateOnly endDate)
+        {
+            Name = name;
+            StartDate = startDate;
+            EndDate = endDate;
+            BacklogItems = new List<BacklogItem>();
+        }
+
+        public void StartSprint()
+        {
+            // Start the sprint
+        }
+
+        public void FinishSprint()
+        {
+            // End the sprint
+        }
     }
 }

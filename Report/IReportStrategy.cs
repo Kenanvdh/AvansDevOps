@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevOps;
 
 namespace Report
 {
-    internal interface IReportStrategy
+    public interface IReportStrategy
     {
+        public void GenerateReport(Sprint sprint);
     }
 }

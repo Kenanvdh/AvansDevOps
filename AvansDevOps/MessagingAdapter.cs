@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Notificator
+﻿namespace Notificator
 {
-    internal class MessagingAdapter
+    public class MessagingAdapter
     {
+        public void SendMessage()
+        {
+            Console.WriteLine("Committing code to Git");
+        }
     }
 }
