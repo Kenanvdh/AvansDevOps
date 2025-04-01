@@ -8,6 +8,6 @@ namespace DevOps.Factory
 {
     public interface IWorkItem
     {
-        void create();
+        void Create();
     }
 }

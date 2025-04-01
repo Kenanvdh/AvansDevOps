@@ -8,7 +8,7 @@ namespace DevOps.Factory
 {
     public class ProjectFactory : IWorkItem
     {
-        public void create()
+        public void Create()
         {
             throw new NotImplementedException();
         }
