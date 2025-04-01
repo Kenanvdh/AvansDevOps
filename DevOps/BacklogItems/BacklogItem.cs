@@ -1,7 +1,7 @@
 ﻿using AvansDevOps.Domain;
 using System.Reflection.Metadata;
 
-namespace DevOps
+namespace DevOps.BacklogItems
 {
     public class BacklogItem
     {

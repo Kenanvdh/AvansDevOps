@@ -1,8 +1,11 @@
-﻿namespace DevOps
+﻿using DevOps.BacklogItems;
+using DevOps.Sprint.State;
+
+namespace DevOps.Sprint
 {
     public class Sprint
     {
-        private string Name { get; set; }
+        public string Name { get; set; }
         private DateOnly StartDate { get; set; }
         private DateOnly EndDate { get; set; }
         private List<BacklogItem> BacklogItems { get; set; }
