@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevOps
+namespace Pipeline
 {
-    internal class CompletedState
+    public class PipelineSetupState
     {
     }
 }

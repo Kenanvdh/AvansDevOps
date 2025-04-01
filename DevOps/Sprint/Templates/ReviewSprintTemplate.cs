@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DevOps
+namespace DevOps.Sprint.Templates
 {
-    internal class Sprint
+    internal class ReviewSprintTemplate
     {
     }
 }

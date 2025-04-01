@@ -1,7 +1,8 @@
 ﻿namespace AvansDevOps.Domain
 {
-    public class Class1
+    public abstract class User
     {
-
+        private string Name { get; set; }
+        private string Role { get; set; }
     }
 }

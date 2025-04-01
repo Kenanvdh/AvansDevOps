@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevOps.Sprint;
 
 namespace Report
 {
-    internal class PngReportStrategy
+    public class PngReportStrategy : IReportStrategy
     {
+        public void GenerateReport(Sprint sprint)
+        {
+            Console.WriteLine("Generated PNG-report for sprint " + sprint.Name);
+        }
     }
 }

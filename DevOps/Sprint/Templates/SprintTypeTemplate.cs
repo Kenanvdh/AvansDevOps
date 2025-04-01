@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notificator
+namespace DevOps.Sprint.Templates
 {
-    internal class GitAdapter
+    internal class SprintTypeTemplate
     {
     }
 }
