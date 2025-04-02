@@ -1,5 +1,4 @@
 ﻿using AvansDevOps.Domain;
-using System.Reflection.Metadata;
 
 namespace DevOps.BacklogItems
 {

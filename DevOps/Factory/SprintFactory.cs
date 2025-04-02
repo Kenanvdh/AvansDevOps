@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DevOps.Factory
+﻿namespace DevOps.Factory
 {
     public class SprintFactory : IWorkItem
     {
-        public void Create()
+        public void Create(string name, DateOnly startDate, DateOnly endDate)
         {
-            throw new NotImplementedException();
+            Sprints.Sprint sprint = new Sprints.Sprint();
+            sprint.Name = name;
+            sprint.StartDate = startDate;
+            sprint.EndDate = endDate;
         }
     }
 }
