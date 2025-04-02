@@ -8,7 +8,7 @@ namespace DevOps.Sprints
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
         private List<BacklogItem> BacklogItems { get; set; }
-        private SprintState State { get; set; }
+        public SprintState State { get; set; }
 
         public Sprint() { }
 

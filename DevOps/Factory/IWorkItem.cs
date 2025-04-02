@@ -1,7 +1,7 @@
 ﻿namespace DevOps.Factory
 {
-    public interface IWorkItem
+    public interface IWorkItem<T>
     {
-        void Create(string name, DateOnly startDate, DateOnly endDate);
+         T Create(string name, DateOnly startDate, DateOnly endDate);
     }
 }

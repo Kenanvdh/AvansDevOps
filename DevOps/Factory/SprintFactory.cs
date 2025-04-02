@@ -1,13 +1,14 @@
 ﻿namespace DevOps.Factory
 {
-    public class SprintFactory : IWorkItem
+    public class SprintFactory : IWorkItem<Sprints.Sprint>
     {
-        public void Create(string name, DateOnly startDate, DateOnly endDate)
+        public Sprints.Sprint Create(string name, DateOnly startDate, DateOnly endDate)
         {
             Sprints.Sprint sprint = new Sprints.Sprint();
             sprint.Name = name;
             sprint.StartDate = startDate;
             sprint.EndDate = endDate;
+            return sprint;
         }
     }
 }

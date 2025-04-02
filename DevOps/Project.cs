@@ -29,11 +29,32 @@ namespace DevOps
             Console.WriteLine($"Project {name} created.");
         }
 
-        public void AddSprint(string name, DateOnly startDate, DateOnly endDate)
+        public void AddSprint(string projectName, string sprintName, DateOnly startDate, DateOnly endDate)
         {
-            //Sprint toevoegen aan project
-            SprintFactory.Create(name, startDate, endDate);
-            Console.WriteLine($"Sprint {name} created.");
+            Sprints.Sprint sprint = SprintFactory.Create(sprintName, startDate, endDate);
+
+            if (Name == projectName)
+            {
+                Sprints.Add(sprint);
+            }
+            else
+            {
+                Console.WriteLine($"Project {projectName} not found.");
+            }
+
+            Console.WriteLine($"Sprint {sprintName} created.");
+        }
+
+        public void AddBacklog(string projectName, Backlog backlog)
+        {
+            if (Name == projectName)
+            {
+                Backlog = backlog;
+            }
+            else
+            {
+                Console.WriteLine($"Project {projectName} not found.");
+            }
         }
     }
 }
