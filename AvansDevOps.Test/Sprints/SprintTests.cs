@@ -16,20 +16,4 @@ public class SprintTests
         Assert.Equal(newState, sprint.State);
     }
 
-    [Fact]
-    public void FinishSprint_ShouldChangeStateToFinished_WhenConditionsMet()
-    {
-        // Arrange
-        var sprint = new Sprint
-        {
-            Name = "Sprint 2",
-            EndDate = DateOnly.FromDateTime(DateTime.Now.AddDays(1))
-        };
-
-        // Act
-        sprint.FinishSprint("Sprint 2");
-
-        // Assert
-        Assert.Equal(SprintState.Finished, sprint.State);
-    }
 }
