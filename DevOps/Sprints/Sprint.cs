@@ -12,6 +12,32 @@ namespace DevOps.Sprints
 
         public Sprint() { }
 
+        public void ChangeSprintInfo(string name, DateOnly startDate, DateOnly endDate)
+        {
+            if (Name == name && State != SprintState.InProgress)
+            {
+                Name = name;
+                StartDate = startDate;
+                EndDate = endDate;
+                Console.WriteLine($"Sprint {name} info changed.");
+            }
+        }
+
+        public void StartSprint(string name)
+        {
+            if(Name == name && StartDate < DateOnly.FromDateTime(DateTime.Now))
+            {
+                State = SprintState.InProgress;
+
+                foreach(BacklogItem item in BacklogItems)
+                {
+                    item.ChangeState(BacklogItemState.ToDo);
+                }
+
+                Console.WriteLine($"Sprint {name} started.");
+            }
+        }
+
         public void UpdateSprintState(string name, SprintState state)
         {
             if (Name == name)
@@ -27,6 +53,18 @@ namespace DevOps.Sprints
             {
                 State = SprintState.Finished;
                 Console.WriteLine($"Sprint {name} finished.");
+            }
+        }
+
+        public void AddBacklogItem(string sprintName, BacklogItem item)
+        {
+            if (Name == sprintName)
+            {
+                BacklogItems.Add(item);
+            }
+            else
+            {
+                Console.WriteLine($"Sprint {sprintName} not found.");
             }
         }
     }

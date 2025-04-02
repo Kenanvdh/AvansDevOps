@@ -42,5 +42,15 @@ namespace DevOps.BacklogItems
         {
             Activities.Add(activity);
         }
+
+        public void FinishItem()
+        {
+            if (Activities.Any(a => !a.MarkCompleted()))
+            {
+                Console.WriteLine("Not all activities are completed.");
+                return;
+            }
+            State = BacklogItemState.Done;
+        }
     }
 }
