@@ -1,15 +1,38 @@
-﻿namespace DevOps
+﻿
+using DevOps.Factory;
+
+namespace DevOps
 {
     public class Project
     {
-        private string Name { get; set; }
-        private string Description { get; set; }
-        private List<Sprint> Sprints { get; set; }
+        public string Name { get; set; }
+        public DateOnly StartDate { get; set; }
+        public DateOnly EndDate { get; set; }
+        public int Version { get; set; }
+        private List<Sprints.Sprint> Sprints { get; set; }
         private Backlog Backlog { get; set; }
 
-        public void CreateSprint(string name, DateOnly startDate, DateOnly endDate)
+        public ProjectFactory ProjectFactory;
+
+        public SprintFactory SprintFactory;
+
+        public Project() { }
+
+        public Project(ProjectFactory projectFactory, SprintFactory sprintFactory)
         {
-            Sprints.Add(new Sprint(name, startDate, endDate));
+            ProjectFactory = projectFactory;
+            SprintFactory = sprintFactory;
+        }
+
+        public void CreateProject(string name, DateOnly startDate, DateOnly endDate)
+        {
+            ProjectFactory.Create(name, startDate, endDate);
+            Console.WriteLine($"Project {name} created.");
+        }
+
+        public void AddSprint(string name, DateOnly startDate, DateOnly endDate)
+        {
+            SprintFactory.Create(name, startDate, endDate);
             Console.WriteLine($"Sprint {name} created.");
         }
     }

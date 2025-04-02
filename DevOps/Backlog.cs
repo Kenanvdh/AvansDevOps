@@ -1,4 +1,6 @@
-﻿namespace DevOps
+﻿using DevOps.BacklogItems;
+
+namespace DevOps
 {
     public class Backlog
     {

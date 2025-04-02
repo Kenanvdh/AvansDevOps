@@ -1,15 +1,17 @@
 ﻿using DevOps.BacklogItems;
 using DevOps.Sprint.State;
 
-namespace DevOps.Sprint
+namespace DevOps.Sprints
 {
     public class Sprint
     {
         public string Name { get; set; }
-        private DateOnly StartDate { get; set; }
-        private DateOnly EndDate { get; set; }
+        public DateOnly StartDate { get; set; }
+        public DateOnly EndDate { get; set; }
         private List<BacklogItem> BacklogItems { get; set; }
         private SprintState State { get; set; }
+
+        public Sprint() { }
 
         public Sprint(string name, DateOnly startDate, DateOnly endDate)
         {

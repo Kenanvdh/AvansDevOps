@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Notificator
+﻿namespace Notificator
 {
-    public class NotificationService : IObserver
+    public class NotificationService : ISubject
     {
         private List<IObserver> Observers { get; set; }
 
-        public void REgister(IObserver observer)
+        public void Register(IObserver observer)
         {
             if (Observers.Contains(observer))
             {
@@ -26,14 +24,14 @@ namespace Notificator
             Observers.Remove(observer);
         }
 
-        public void NotifyObservers()
+        public void Notify()
         {
             Observers.ForEach(o => o.Update(this));
         }
 
-        public void Update()
+        public List<IObserver> GetObservers()
         {
-
+            throw new NotImplementedException();
         }
     }
 }

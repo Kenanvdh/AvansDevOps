@@ -1,4 +1,4 @@
-﻿using DevOps;
+﻿using DevOps.Sprints;
 
 namespace Report
 {
