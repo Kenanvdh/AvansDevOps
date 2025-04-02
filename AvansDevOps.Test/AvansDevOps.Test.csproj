@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AvansDevOps.Domain\AvansDevOps.Domain.csproj" />
     <ProjectReference Include="..\AvansDevOps\Notificator.csproj" />
     <ProjectReference Include="..\DevOps\DevOps.csproj" />
     <ProjectReference Include="..\Pipeline\Pipeline.csproj" />

@@ -1,15 +1,13 @@
-﻿using AvansDevOps.Domain;
-
-namespace DevOps
+﻿namespace DevOps
 {
     public class Activity
     {
-        private string Name { get; set; }
+        public string Name { get; set; }
         private string Description { get; set; }
-        public User Assignee { get; set; }
+        public Persons.User Assignee { get; set; }
         private bool Completed { get; set; }
 
-        public void CreateActivity(string name, string description, User assignee)
+        public void CreateActivity(string name, string description, Persons.User assignee)
         {
             Name = name;
             Description = description;

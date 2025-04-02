@@ -1,14 +1,12 @@
-﻿using AvansDevOps.Domain;
-
-namespace DevOps.BacklogItems
+﻿namespace DevOps.BacklogItems
 {
     public class BacklogItem
     {
-        private string Title { get; set; }
+        public string Title { get; set; }
         private string Description { get; set; }
-        private List<Activity> Activities { get; set; }
-        private User assignee { get; set; }
-        private BacklogItemState State { get; set; }
+        public List<Activity> Activities { get; set; }
+        private Persons.User assignee { get; set; }
+        public BacklogItemState State { get; set; }
 
         public void CreateItem(string title, string description)
         {
@@ -24,14 +22,14 @@ namespace DevOps.BacklogItems
             Console.WriteLine($"State changed to {state}");
         }
 
-        public void AddAssignee(User user)
+        public void AddAssignee(Persons.User user)
         {
             assignee = user;
         }
 
-        public void AddMoreAssignees(List<User> users, string activityTitle, string activityDescription)
+        public void AddMoreAssignees(List<Persons.User> users, string activityTitle, string activityDescription)
         {
-            foreach (User user in users)
+            foreach (Persons.User user in users)
             {
                 Activity activity = new Activity();
                 activity.CreateActivity(activityTitle, activityDescription, user);

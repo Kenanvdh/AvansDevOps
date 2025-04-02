@@ -7,7 +7,7 @@ namespace DevOps.Sprints
         public string Name { get; set; }
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
-        private List<BacklogItem> BacklogItems { get; set; }
+        public List<BacklogItem> BacklogItems { get; set; }
         public SprintState State { get; set; }
 
         public Sprint() { }
@@ -66,6 +66,11 @@ namespace DevOps.Sprints
             {
                 Console.WriteLine($"Sprint {sprintName} not found.");
             }
+        }
+
+        public List<BacklogItem> GetItems()
+        {
+            return BacklogItems;
         }
     }
 }
