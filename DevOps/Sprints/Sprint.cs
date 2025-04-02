@@ -13,22 +13,22 @@ namespace DevOps.Sprints
 
         public Sprint() { }
 
-        public Sprint(string name, DateOnly startDate, DateOnly endDate)
+        public void UpdateSprintState(string name, SprintState state)
         {
-            Name = name;
-            StartDate = startDate;
-            EndDate = endDate;
-            BacklogItems = new List<BacklogItem>();
+            if (Name == name)
+            {
+                State = state;
+                Console.WriteLine($"Sprint {name} state changed to {state}");
+            }
         }
 
-        public void StartSprint()
+        public void FinishSprint(string name)
         {
-            // Start the sprint
-        }
-
-        public void FinishSprint()
-        {
-            // End the sprint
+            if (Name == name && EndDate > DateOnly.FromDateTime(DateTime.Now))
+            {
+                State = SprintState.Finished;
+                Console.WriteLine($"Sprint {name} finished.");
+            }
         }
     }
 }
