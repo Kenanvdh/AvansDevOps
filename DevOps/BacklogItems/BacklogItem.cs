@@ -7,6 +7,8 @@
         public List<Activity> Activities { get; set; }
         private Persons.User assignee { get; set; }
         public BacklogItemState State { get; set; }
+        public bool IsCompleted { get; set; }
+        public bool IsApproved { get; set; }
 
         public void CreateItem(string title, string description)
         {
@@ -48,7 +50,7 @@
                 Console.WriteLine("Not all activities are completed.");
                 return;
             }
-            State = BacklogItemState.Done;
+            State = BacklogItemState.ReadyForTesting;
         }
     }
 }

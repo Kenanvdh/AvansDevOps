@@ -1,5 +1,6 @@
 ﻿
 using DevOps.Factory;
+using DevOps.Persons;
 
 namespace DevOps
 {
@@ -11,6 +12,7 @@ namespace DevOps
         public int Version { get; set; }
         private List<Sprints.Sprint> Sprints { get; set; }
         private Backlog Backlog { get; set; }
+        private User ProductOwner { get; set; }
 
         public ProjectFactory ProjectFactory;
         public SprintFactory SprintFactory;
@@ -23,16 +25,17 @@ namespace DevOps
             SprintFactory = sprintFactory;
         }
 
-        public void CreateProject(string name, DateOnly startDate, DateOnly endDate)
+        public void CreateProject(string name, DateOnly startDate, DateOnly endDate, User productOwner)
         {
-            ProjectFactory.Create(name, startDate, endDate);
+            Project project = ProjectFactory.Create(name, startDate, endDate);
+            project.ProductOwner = productOwner;
             Console.WriteLine($"Project {name} created.");
         }
 
-        public void AddSprint(string projectName, string sprintName, DateOnly startDate, DateOnly endDate)
+        public void AddSprint(string projectName, string sprintName, DateOnly startDate, DateOnly endDate, User sprintMaster)
         {
             Sprints.Sprint sprint = SprintFactory.Create(sprintName, startDate, endDate);
-
+            sprint.SprintMaster = sprintMaster;
             if (Name == projectName)
             {
                 Sprints.Add(sprint);

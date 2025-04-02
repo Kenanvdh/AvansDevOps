@@ -1,4 +1,5 @@
 ﻿using DevOps.BacklogItems;
+using DevOps.Persons;
 
 namespace DevOps.Sprints
 {
@@ -9,9 +10,11 @@ namespace DevOps.Sprints
         public DateOnly EndDate { get; set; }
         public List<BacklogItem> BacklogItems { get; set; }
         public SprintState State { get; set; }
+        public User SprintMaster { get; set; }
 
         public Sprint() { }
 
+        
         public void ChangeSprintInfo(string name, DateOnly startDate, DateOnly endDate)
         {
             if (Name == name && State != SprintState.InProgress)

@@ -10,7 +10,17 @@
                 Console.WriteLine("Item is not in tested state");
                 return;
             }
-            item.ChangeState(BacklogItems.BacklogItemState.Done);
+
+            if (item.IsCompleted)
+            {
+                item.ChangeState(BacklogItems.BacklogItemState.Done);
+                Console.WriteLine("Item is  completed");
+            }
+            else
+            {
+                item.ChangeState(BacklogItems.BacklogItemState.ReadyForTesting);
+                Console.WriteLine("Item is not completed");
+            }     
         }
     }
 }
