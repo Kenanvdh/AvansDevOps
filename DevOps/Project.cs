@@ -13,7 +13,6 @@ namespace DevOps
         private Backlog Backlog { get; set; }
 
         public ProjectFactory ProjectFactory;
-
         public SprintFactory SprintFactory;
 
         public Project() { }
@@ -32,6 +31,7 @@ namespace DevOps
 
         public void AddSprint(string name, DateOnly startDate, DateOnly endDate)
         {
+            //Sprint toevoegen aan project
             SprintFactory.Create(name, startDate, endDate);
             Console.WriteLine($"Sprint {name} created.");
         }

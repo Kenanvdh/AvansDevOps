@@ -1,5 +1,4 @@
 ﻿using DevOps.BacklogItems;
-using DevOps.Sprint.State;
 
 namespace DevOps.Sprints
 {
@@ -24,7 +23,7 @@ namespace DevOps.Sprints
 
         public void FinishSprint(string name)
         {
-            if (Name == name && EndDate > DateOnly.FromDateTime(DateTime.Now))
+            if (Name == name && EndDate < DateOnly.FromDateTime(DateTime.Now))
             {
                 State = SprintState.Finished;
                 Console.WriteLine($"Sprint {name} finished.");
