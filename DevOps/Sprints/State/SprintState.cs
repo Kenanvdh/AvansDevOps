@@ -1,6 +1,10 @@
 ﻿namespace DevOps.Sprint.State
 {
-    public class SprintState
+    public enum SprintState
     {
+        Planned,
+        InProgress,
+        Reviewed,
+        Finished
     }
 }
