@@ -7,12 +7,10 @@ namespace Notifications
     {
         public void Update(NotificationSubject subject)
         {
-            if (subject is not BacklogItem)
+            if (!(subject is BacklogItem backlogItem))
             {
                 return;
-            }
-
-            var backlogItem = (BacklogItem)subject;
+                }
 
             switch (backlogItem.State)
             {
@@ -55,7 +53,7 @@ namespace Notifications
                 }
             }
 
-            if (item.Assignee != null)
+            if(item.Assignee != null)
             {
                 tempList.Add(item.Assignee);
             }
