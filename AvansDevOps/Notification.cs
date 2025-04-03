@@ -1,4 +1,4 @@
-﻿using AvansDevOps.Domain;
+﻿using DevOps.Persons;
 
 namespace Notificator
 {

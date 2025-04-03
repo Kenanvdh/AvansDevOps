@@ -1,14 +1,22 @@
-﻿using AvansDevOps.Domain;
-
-namespace DevOps.BacklogItems
+﻿namespace DevOps.BacklogItems
 {
     public class BacklogItem
     {
-        private string Title { get; set; }
+        public string Title { get; set; }
         private string Description { get; set; }
-        private List<Activity> Activities { get; set; }
-        private User assignee { get; set; }
-        private BacklogItemState State { get; set; }
+        public List<Activity> Activities { get; set; }
+        private Persons.User assignee { get; set; }
+        public BacklogItemState State { get; set; }
+        public bool IsCompleted { get; set; }
+        public bool IsApproved { get; set; }
+
+        public void CreateItem(string title, string description)
+        {
+            Title = title;
+            Description = description;
+            Activities = new List<Activity>();
+            State = BacklogItemState.ToDo;
+        }
 
         public void ChangeState(BacklogItemState state)
         {
@@ -16,14 +24,33 @@ namespace DevOps.BacklogItems
             Console.WriteLine($"State changed to {state}");
         }
 
-        public void AddAssignee(User user)
+        public void AddAssignee(Persons.User user)
         {
             assignee = user;
+        }
+
+        public void AddMoreAssignees(List<Persons.User> users, string activityTitle, string activityDescription)
+        {
+            foreach (Persons.User user in users)
+            {
+                Activity activity = new Activity();
+                activity.CreateActivity(activityTitle, activityDescription, user);
+            }
         }
 
         public void AddActivity(Activity activity)
         {
             Activities.Add(activity);
+        }
+
+        public void FinishItem()
+        {
+            if (Activities.Any(a => !a.MarkCompleted()))
+            {
+                Console.WriteLine("Not all activities are completed.");
+                return;
+            }
+            State = BacklogItemState.ReadyForTesting;
         }
     }
 }

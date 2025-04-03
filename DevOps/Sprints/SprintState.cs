@@ -1,4 +1,4 @@
-﻿namespace DevOps.Sprint.State
+﻿namespace DevOps.Sprints
 {
     public enum SprintState
     {
