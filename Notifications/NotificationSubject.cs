@@ -1,8 +1,13 @@
-﻿namespace Notificator
+﻿namespace Notifications
 {
-    public class NotificationService : ISubject
+    public class NotificationSubject : ISubject
     {
-        private List<IObserver> Observers { get; set; }
+        private List<IObserver> Observers;
+
+        protected NotificationSubject()
+        {
+            Observers = new List<IObserver>();
+        }
 
         public void Register(IObserver observer)
         {

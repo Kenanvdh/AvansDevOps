@@ -13,6 +13,7 @@ namespace DevOps
         private List<Sprints.Sprint> Sprints { get; set; }
         private Backlog Backlog { get; set; }
         private User ProductOwner { get; set; }
+        public List<User> Testers { get; set; }
 
         public ProjectFactory ProjectFactory;
         public SprintFactory SprintFactory;
