@@ -13,8 +13,7 @@ namespace DevOps.Sprints
         public User SprintMaster { get; set; }
 
         public Sprint() { }
-
-        
+                
         public void ChangeSprintInfo(string name, DateOnly startDate, DateOnly endDate)
         {
             if (Name == name && State != SprintState.InProgress)

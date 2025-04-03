@@ -1,6 +1,7 @@
-﻿namespace DevOps.BacklogItems
+﻿
+namespace DevOps.BacklogItems
 {
-    public class BacklogItem
+    public class BacklogItem : NotificationSubject
     {
         public string Title { get; set; }
         private string Description { get; set; }

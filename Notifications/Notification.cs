@@ -1,6 +1,6 @@
 ﻿using DevOps.Persons;
 
-namespace Notificator
+namespace Notifications
 {
     public class Notification
     {

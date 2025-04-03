@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notificator", "AvansDevOps\Notificator.csproj", "{5062EF73-F741-47DA-A392-02786DF95466}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvansDevOps.Test", "AvansDevOps.Test\AvansDevOps.Test.csproj", "{07F83497-43F5-44FB-A524-9FB885484487}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report", "Report\Report.csproj", "{E140B497-655E-4FC5-B0AF-894A1499C071}"
@@ -15,16 +13,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads", "Threads\Threads.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pipeline", "Pipeline\Pipeline.csproj", "{E1C4B73B-4DC7-402D-A6D8-48142DAC9CD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notifications", "Notifications\Notifications.csproj", "{5D253B92-3278-4556-A52C-A8EE511A0066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5062EF73-F741-47DA-A392-02786DF95466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5062EF73-F741-47DA-A392-02786DF95466}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5062EF73-F741-47DA-A392-02786DF95466}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5062EF73-F741-47DA-A392-02786DF95466}.Release|Any CPU.Build.0 = Release|Any CPU
 		{07F83497-43F5-44FB-A524-9FB885484487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07F83497-43F5-44FB-A524-9FB885484487}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07F83497-43F5-44FB-A524-9FB885484487}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{E1C4B73B-4DC7-402D-A6D8-48142DAC9CD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1C4B73B-4DC7-402D-A6D8-48142DAC9CD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1C4B73B-4DC7-402D-A6D8-48142DAC9CD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D253B92-3278-4556-A52C-A8EE511A0066}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D253B92-3278-4556-A52C-A8EE511A0066}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D253B92-3278-4556-A52C-A8EE511A0066}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D253B92-3278-4556-A52C-A8EE511A0066}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿namespace Notificator
+﻿namespace Notifications
 {
     public interface ISubject
     {

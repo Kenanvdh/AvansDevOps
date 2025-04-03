@@ -5,4 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevOps\DevOps.csproj" />
+  </ItemGroup>
+
 </Project>
