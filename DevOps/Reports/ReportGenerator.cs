@@ -2,7 +2,7 @@
 
 namespace Report
 {
-    public class RepostGenerator
+    public class ReportGenerator
     {
         private IReportStrategy ReportStrategy { get; set; }
 
