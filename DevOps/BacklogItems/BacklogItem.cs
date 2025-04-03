@@ -1,4 +1,5 @@
-﻿
+﻿using DevOps.Persons;
+
 namespace DevOps.BacklogItems
 {
     public class BacklogItem : NotificationSubject
@@ -6,10 +7,11 @@ namespace DevOps.BacklogItems
         public string Title { get; set; }
         private string Description { get; set; }
         public List<Activity> Activities { get; set; }
-        private Persons.User assignee { get; set; }
+        public User Assignee { get; set; }
         public BacklogItemState State { get; set; }
         public bool IsCompleted { get; set; }
         public bool IsApproved { get; set; }
+        private Sprints.Sprint Sprint { get; set; }
 
         public void CreateItem(string title, string description)
         {
@@ -17,6 +19,11 @@ namespace DevOps.BacklogItems
             Description = description;
             Activities = new List<Activity>();
             State = BacklogItemState.ToDo;
+        }
+
+        public Sprints.Sprint GetSprint()
+        {
+            return Sprint;
         }
 
         public void ChangeState(BacklogItemState state)
@@ -27,7 +34,7 @@ namespace DevOps.BacklogItems
 
         public void AddAssignee(Persons.User user)
         {
-            assignee = user;
+            Assignee = user;
         }
 
         public void AddMoreAssignees(List<Persons.User> users, string activityTitle, string activityDescription)

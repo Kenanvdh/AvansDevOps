@@ -11,7 +11,7 @@ namespace DevOps.Sprints
         public List<BacklogItem> BacklogItems { get; set; }
         public SprintState State { get; set; }
         public User SprintMaster { get; set; }
-
+        public Project Project { get; set; }
         public Sprint() { }
                 
         public void ChangeSprintInfo(string name, DateOnly startDate, DateOnly endDate)
@@ -23,6 +23,11 @@ namespace DevOps.Sprints
                 EndDate = endDate;
                 Console.WriteLine($"Sprint {name} info changed.");
             }
+        }
+
+        public Project GetProject()
+        {
+            return Project;
         }
 
         public void StartSprint(string name)
