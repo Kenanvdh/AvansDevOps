@@ -33,14 +33,14 @@ namespace DevOps.BacklogItems
             Console.WriteLine($"State changed to {state}");
         }
 
-        public void AddAssignee(Persons.User user)
+        public void AddAssignee(User user)
         {
             Assignee = user;
         }
 
-        public void AddMoreAssignees(List<Persons.User> users, string activityTitle, string activityDescription)
+        public void AddMoreAssignees(List<User> users, string activityTitle, string activityDescription)
         {
-            foreach (Persons.User user in users)
+            foreach (User user in users)
             {
                 Activity activity = new Activity();
                 activity.CreateActivity(activityTitle, activityDescription, user);
