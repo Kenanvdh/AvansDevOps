@@ -1,6 +1,8 @@
-﻿namespace Threads
+﻿using DevOps.Persons;
+
+namespace Threads
 {
-    internal class Message : ThreadComponent
+    public class Message : ThreadComponent
     {
         private User createdBy;
         private List<ThreadComponent> replies = new List<ThreadComponent>(); // Reacties op berichten

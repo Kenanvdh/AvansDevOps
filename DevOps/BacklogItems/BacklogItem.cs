@@ -1,6 +1,6 @@
-﻿using Persons;
-using Notifications;
+﻿using Notifications;
 using Threads;
+using DevOps.Persons;
 
 
 namespace DevOps.BacklogItems
@@ -15,7 +15,7 @@ namespace DevOps.BacklogItems
         public bool IsCompleted { get; set; }
         public bool IsApproved { get; set; }
         private Sprints.Sprint Sprint { get; set; }
-        private Thread discussionThread;
+        private Threads.Thread discussionThread;
 
         public void CreateItem(string title, string description)
         {
@@ -93,7 +93,7 @@ namespace DevOps.BacklogItems
                 return;
             }
 
-            discussionThread = new Thread(message, user);
+            discussionThread = new Threads.Thread(message, user);
             Console.WriteLine($"Thread started by {user.Name} for BacklogItem: {Title}");
         }
 

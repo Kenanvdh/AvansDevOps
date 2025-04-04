@@ -1,4 +1,6 @@
-﻿public class SprintTests
+﻿using DevOps.Sprints;
+
+public class SprintTests
 {
     [Fact]
     public void UpdateSprintState_ShouldChangeState_WhenNameMatches()
