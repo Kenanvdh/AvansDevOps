@@ -13,17 +13,14 @@ namespace DevOps.Sprint.Templates
 
         public void RunSprint(User user)
         {
-            PlanSprint();
-            Develop();
-            Test();
-            Review();
-            Deploy(user);
-        }
+            if (!Sprint.IsScrumMaster(user))
+            {
+                Console.WriteLine($"Access denied. User '{user.Name}' is not the Scrum Master of sprint '{Sprint.Name}'.");
+                return;
+            }
 
-        protected abstract void PlanSprint();
-        protected abstract void Develop();
-        protected abstract void Test();
-        protected abstract void Review();
-        protected abstract void Deploy(User user);
+            Execute(user);
+        }
+        protected abstract void Execute(User user);
     }
 }
