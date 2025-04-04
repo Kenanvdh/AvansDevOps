@@ -12,6 +12,7 @@ namespace DevOps.Sprints
         public SprintState State { get; set; }
         public User SprintMaster { get; set; }
         public Project Project { get; set; }
+        public string? ReviewSummaryDocumentPath { get; set; }
         public Sprint() { }
                 
         public void ChangeSprintInfo(string name, DateOnly startDate, DateOnly endDate)
@@ -64,6 +65,17 @@ namespace DevOps.Sprints
             {
                 Console.WriteLine($"Sprint {sprintName} not found.");
             }
+        }
+
+        public void UploadReviewSummary(string filePath)
+        {
+            ReviewSummaryDocumentPath = filePath;
+            Console.WriteLine($"Review document '{filePath}' geüpload voor sprint '{Name}'.");
+        }
+
+        public bool IsScrumMaster(User user)
+        {
+            return SprintMaster != null && SprintMaster == user;
         }
 
         public List<BacklogItem> GetItems()

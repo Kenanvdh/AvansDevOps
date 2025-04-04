@@ -1,4 +1,6 @@
-﻿namespace DevOps.Sprint.Templates
+﻿using DevOps.Persons;
+
+namespace DevOps.Sprint.Templates
 {
     public abstract class SprintTypeTemplate
     {
@@ -9,19 +11,19 @@
             this.Sprint = sprint;
         }
 
-        public void RunSprint()
+        public void RunSprint(User user)
         {
             PlanSprint();
             Develop();
             Test();
             Review();
-            Deploy();
+            Deploy(user);
         }
 
         protected abstract void PlanSprint();
         protected abstract void Develop();
         protected abstract void Test();
         protected abstract void Review();
-        protected abstract void Deploy();
+        protected abstract void Deploy(User user);
     }
 }

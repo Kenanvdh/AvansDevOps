@@ -1,5 +1,6 @@
 ﻿using DevOps.Sprints;
 using DevOps.BacklogItems;
+using DevOps.Persons;
 
 namespace DevOps.Sprint.Templates
 {
@@ -41,9 +42,31 @@ namespace DevOps.Sprint.Templates
             Sprint.UpdateSprintState(Sprint.Name, SprintState.Reviewed);
         }
 
-        protected override void Deploy()
+        protected override void Deploy(User user)
         {
-            Console.WriteLine("No deployment needed for Review Sprint.");
+            Console.WriteLine("Trying to finalize the Review Sprint...");
+
+            if (!Sprint.IsScrumMaster(user))
+            {
+                Console.WriteLine("Alleen de Scrum Master mag de sprint afsluiten.");
+                return;
+            }
+
+            if (Sprint.State != SprintState.Reviewed)
+            {
+                Console.WriteLine("Sprint kan niet worden afgesloten. Status is niet 'Reviewed'.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(Sprint.ReviewSummaryDocumentPath))
+            {
+                Console.WriteLine("Sprint kan niet worden afgesloten. Reviewdocument ontbreekt.");
+                return;
+            }
+
+            Sprint.UpdateSprintState(Sprint.Name, SprintState.Finished);
+            Console.WriteLine("Sprint succesvol afgesloten na review met upload.");
         }
+
     }
 }

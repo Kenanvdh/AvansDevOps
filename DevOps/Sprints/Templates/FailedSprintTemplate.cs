@@ -1,5 +1,6 @@
 ﻿using DevOps.Sprints;
 using DevOps.BacklogItems;
+using DevOps.Persons;
 
 namespace DevOps.Sprint.Templates
 {
@@ -31,10 +32,23 @@ namespace DevOps.Sprint.Templates
             Console.WriteLine("Retrospective of the failed sprint.");
         }
 
-        protected override void Deploy()
+        protected override void Deploy(User user)
         {
+            if (!Sprint.IsScrumMaster(user))
+            {
+                Console.WriteLine("Alleen de Scrum Master mag een sprint als gefaald markeren.");
+                return;
+            }
+
+            if (Sprint.State == SprintState.Finished)
+            {
+                Console.WriteLine("Sprint is al afgerond. Kan niet opnieuw falen.");
+                return;
+            }
+
             Console.WriteLine("No deployment, Sprint has failed.");
             Sprint.UpdateSprintState(Sprint.Name, SprintState.Planned);
         }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DevOps.Sprints;
 using DevOps.BacklogItems;
+using DevOps.Persons;
 
 namespace DevOps.Sprint.Templates
 {
@@ -31,16 +32,32 @@ namespace DevOps.Sprint.Templates
         protected override void Review()
         {
             Console.WriteLine("Final review and documentation...");
+            Sprint.UpdateSprintState(Sprint.Name, SprintState.Reviewed);
         }
 
-        protected override void Deploy()
+        protected override void Deploy(User user)
         {
+            if (!Sprint.IsScrumMaster(user))
+            {
+                Console.WriteLine("Alleen de Scrum Master mag de release uitvoeren.");
+                return;
+            }
+
+            if (Sprint.State != SprintState.Reviewed)
+            {
+                Console.WriteLine("Sprint kan niet worden gedeployed. Status is niet 'Reviewed'.");
+                return;
+            }
+
             Console.WriteLine("Deploying release items...");
             foreach (var item in Sprint.BacklogItems)
             {
                 item.FinishItem();
             }
+
             Sprint.UpdateSprintState(Sprint.Name, SprintState.Finished);
+            Console.WriteLine("Release Sprint succesvol gedeployed.");
         }
+
     }
 }
