@@ -1,6 +1,4 @@
-﻿using DevOps.Sprints;
-
-namespace DevOps.Persons
+﻿namespace DevOps.Persons
 {
     public class Tester : User
     {

@@ -1,6 +1,4 @@
-﻿using DevOps.Sprints;
-
-namespace Report
+﻿namespace Report
 {
     public interface IReportStrategy
     {

@@ -1,6 +1,4 @@
-﻿using DevOps.BacklogItems;
-
-namespace Notifications
+﻿namespace Notifications
 {
     public interface IObserver
     {

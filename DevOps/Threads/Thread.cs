@@ -1,6 +1,4 @@
-﻿using DevOps.Persons;
-
-namespace Threads
+﻿namespace Threads
 {
     internal class Thread : ThreadComponent
     {
@@ -8,7 +6,7 @@ namespace Threads
         private User createdBy;
         private bool isClosed = false; // Thread begint open
 
-        public Thread(string content, User user) : base(content)
+        public Thread(string content, Persons.User user) : base(content)
         {
             this.createdBy = user;
         }

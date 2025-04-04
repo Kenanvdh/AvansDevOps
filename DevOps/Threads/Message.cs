@@ -1,6 +1,4 @@
-﻿using DevOps.Persons;
-
-namespace Threads
+﻿namespace Threads
 {
     internal class Message : ThreadComponent
     {
