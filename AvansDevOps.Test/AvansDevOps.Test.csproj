@@ -19,9 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DevOps\DevOps.csproj" />
-    <ProjectReference Include="..\Pipeline\Pipeline.csproj" />
-    <ProjectReference Include="..\Report\Report.csproj" />
-    <ProjectReference Include="..\Threads\Threads.csproj" />
   </ItemGroup>
 
   <ItemGroup>
