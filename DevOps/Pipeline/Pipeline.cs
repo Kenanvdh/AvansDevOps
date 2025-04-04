@@ -11,11 +11,6 @@ namespace Pipeline
             pipeline.SetState(new DownloadingSourcesState());            
         }
 
-        public void Stop()
-        {
-            throw new NotImplementedException();
-        }
-
         public void SetState(IPipelineState state)
         {
             state.Execute(this);
