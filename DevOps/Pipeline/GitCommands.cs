@@ -21,7 +21,5 @@
         {
             Console.WriteLine("Merging to Git");
         }
-
-
     }
 }

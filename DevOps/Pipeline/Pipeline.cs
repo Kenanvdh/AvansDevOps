@@ -1,15 +1,24 @@
-﻿namespace Pipeline
+﻿using DevOps.Pipeline;
+
+namespace Pipeline
 {
     public class Pipeline : IPipeline
     {
         public void Start()
         {
-            throw new NotImplementedException();
+            Pipeline pipeline = new Pipeline();
+            Console.WriteLine("Starting pipeline tasks");
+            pipeline.SetState(new DownloadingSourcesState());            
         }
 
         public void Stop()
         {
             throw new NotImplementedException();
+        }
+
+        public void SetState(IPipelineState state)
+        {
+            state.Execute(this);
         }
     }
 }
