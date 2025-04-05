@@ -2,7 +2,7 @@
 {
     public class NotificationSubject : ISubject
     {
-        private List<IObserver> Observers;
+        private readonly List<IObserver> Observers;
 
         protected NotificationSubject()
         {

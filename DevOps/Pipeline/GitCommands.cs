@@ -2,22 +2,22 @@
 {
     public class GitCommands
     {
-        public void Pull()
+        public static void Pull()
         {
             Console.WriteLine("Pulling from Git");
         }
 
-        public void Push()
+        public static void Push()
         {
             Console.WriteLine("Pushing to Git");
         }
 
-        public void Commit()
+        public static void Commit()
         {
             Console.WriteLine("Committing to Git");
         }
 
-        public void Merge()
+        public static void Merge()
         {
             Console.WriteLine("Merging to Git");
         }

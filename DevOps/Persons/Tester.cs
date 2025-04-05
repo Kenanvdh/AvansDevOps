@@ -2,10 +2,10 @@
 {
     public class Tester : User
     {
-        public void TestItem(string itemName, Sprints.Sprint sprint)
+        public static void TestItem(string itemName, Sprints.Sprint sprint)
         {
             var item = sprint.BacklogItems.FirstOrDefault(i => i.Title == itemName);
-            if (item == null)
+            if (item != null)
             {
                 if (item.State != BacklogItems.BacklogItemState.ReadyForTesting)
                 {
