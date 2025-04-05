@@ -7,15 +7,15 @@ namespace DevOps.BacklogItems
 {
     public class BacklogItem : NotificationSubject
     {
-        public string Title { get; set; }
-        private string Description { get; set; }
-        public List<Activity> Activities { get; set; }
-        public User Assignee { get; set; }
-        public BacklogItemState State { get; set; }
+        public required string Title { get; set; }
+        private string Description { get; set; } = string.Empty;
+        public required List<Activity> Activities { get; set; } 
+        public required User Assignee { get; set; }
+        public required BacklogItemState State { get; set; }
         public bool IsCompleted { get; set; }
         public bool IsApproved { get; set; }
-        private Sprints.Sprint Sprint { get; set; }
-        private Threads.Thread discussionThread;
+        private Sprints.Sprint Sprint { get; } = new Sprints.Sprint();
+        private Threads.Thread? discussionThread { get; set; } 
 
         public void CreateItem(string title, string description)
         {
@@ -47,7 +47,7 @@ namespace DevOps.BacklogItems
             Assignee = user;
         }
 
-        public void AddMoreAssignees(List<User> users, string activityTitle, string activityDescription)
+        public static void AddMoreAssignees(List<User> users, string activityTitle, string activityDescription)
         {
             foreach (User user in users)
             {

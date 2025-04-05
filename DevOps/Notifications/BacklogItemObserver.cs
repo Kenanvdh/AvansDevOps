@@ -35,13 +35,13 @@ namespace Notifications
             }
         }
 
-        private void ToDoNotify(BacklogItem item)
+        private static void ToDoNotify(BacklogItem item)
         {
             var scrumMaster = item.GetSprint().SprintMaster;
             scrumMaster.SendMessage(scrumMaster.Name, $"Backlog item {item.Title} is in ToDo state.");
         }
 
-        private void DoingNotify(BacklogItem item)
+        private static void DoingNotify(BacklogItem item)
         {
             var tempList = new List<User>();
 
@@ -64,7 +64,7 @@ namespace Notifications
             }
         }
 
-        private void ReadyForTestingNotify(BacklogItem item)
+        private static void ReadyForTestingNotify(BacklogItem item)
         {
             var testers = item.GetSprint().GetProject().Testers;
             foreach (var tester in testers)
@@ -73,13 +73,13 @@ namespace Notifications
             }
         }
 
-        private void TestingNotify(BacklogItem item)
+        private static void TestingNotify(BacklogItem item)
         {
             var scrumMaster = item.GetSprint().SprintMaster;
             scrumMaster.SendMessage(scrumMaster.Name, $"Backlog item {item.Title} is in Testing state.");
         }
 
-        private void TestedNotify(BacklogItem item)
+        private static void TestedNotify(BacklogItem item)
         {
             var scrumMaster = item.GetSprint().SprintMaster;
             scrumMaster.SendMessage(scrumMaster.Name, $"Backlog item {item.Title} is in Tested state.");
@@ -90,7 +90,7 @@ namespace Notifications
             }
         }
 
-        private void DoneNotiify(BacklogItem item)
+        private static void DoneNotiify(BacklogItem item)
         {
             var scrumMaster = item.GetSprint().SprintMaster;
             scrumMaster.SendMessage(scrumMaster.Name, $"Backlog item {item.Title} is in Done state.");

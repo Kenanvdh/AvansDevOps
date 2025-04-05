@@ -6,7 +6,7 @@ namespace DevOps.Sprint.Templates
     {
         protected Sprints.Sprint Sprint;
 
-        public SprintTypeTemplate(Sprints.Sprint sprint)
+        protected SprintTypeTemplate(Sprints.Sprint sprint)
         {
             this.Sprint = sprint;
         }

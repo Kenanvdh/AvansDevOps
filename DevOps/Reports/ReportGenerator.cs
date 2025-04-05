@@ -4,7 +4,7 @@ namespace Report
 {
     public class ReportGenerator
     {
-        private IReportStrategy ReportStrategy { get; set; }
+        private IReportStrategy? ReportStrategy { get; set; }
 
         public void SetStrategy(IReportStrategy reportStrategy)
         {
@@ -13,7 +13,7 @@ namespace Report
 
         public void GenerateReport(Sprint sprint)
         {
-            ReportStrategy.GenerateReport(sprint);
+            ReportStrategy?.GenerateReport(sprint);
         }
     }
 }  
