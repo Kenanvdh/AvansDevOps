@@ -6,7 +6,7 @@ namespace DevOps
 {
     public class Project
     {
-        public required string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
         public int Version { get; set; }
