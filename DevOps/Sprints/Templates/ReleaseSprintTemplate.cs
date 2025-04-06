@@ -1,6 +1,5 @@
 ﻿using DevOps.Persons;
-using Pipe = Pipeline.Pipeline;
-
+using Pipeline;
 
 namespace DevOps.Sprint.Templates
 {
@@ -12,7 +11,7 @@ namespace DevOps.Sprint.Templates
         {
             Console.WriteLine($"Starting release process for sprint '{Sprint.Name}'...");
 
-            var pipeline = new Pipe();
+            var pipeline = new Pipeline.Pipeline();
             pipeline.Start(Sprint);
         }
     }

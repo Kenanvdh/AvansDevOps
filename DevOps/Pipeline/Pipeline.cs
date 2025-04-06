@@ -1,11 +1,11 @@
-﻿using DevOps.Pipeline;
-using DevOps.Sprints;
+﻿using DevOps.Sprints;
+using Pipeline;
 
-namespace Pipeline
+namespace DevOps.Pipeline
 {
     public class Pipeline : IPipeline
     {
-        public void Start(Sprint sprint)
+        public void Start(Sprints.Sprint sprint)
         {
             Console.WriteLine("Starting pipeline tasks");
             SetState(new DownloadingSourcesState());
