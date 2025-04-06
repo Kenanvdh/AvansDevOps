@@ -4,7 +4,7 @@ namespace Report
 {
     public class ReportGenerator
     {
-        private IReportStrategy? ReportStrategy { get; set; }
+        public IReportStrategy? ReportStrategy { get; set; }
 
         public void SetStrategy(IReportStrategy reportStrategy)
         {

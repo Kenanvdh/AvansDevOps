@@ -10,6 +10,7 @@ namespace Threads
         public Message(string content, User user) : base(content)
         {
             this.createdBy = user;
+            this.timestamp = DateTime.Now;
         }
 
         public override void Add(ThreadComponent component)

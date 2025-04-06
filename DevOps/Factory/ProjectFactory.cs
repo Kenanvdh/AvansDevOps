@@ -2,7 +2,7 @@
 {
     public class ProjectFactory : IWorkItem<Project>
     {
-        public Project Create(string name, DateOnly startDate, DateOnly endDate)
+        public virtual Project Create(string name, DateOnly startDate, DateOnly endDate)
         {
             Project project = new Project();
             project.Name = name;

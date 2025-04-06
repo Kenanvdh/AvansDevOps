@@ -1,51 +1,58 @@
 ﻿using DevOps.Sprints;
 using Moq;
 using Report;
+using Xunit;
 
 namespace AvansDevOps.Test.Reports
 {
     public class ReportGeneratorTests
     {
-        private MockRepository mockRepository;
-
-        public ReportGeneratorTests()
-        {
-            this.mockRepository = new MockRepository(MockBehavior.Strict);
-        }
-
-        private ReportGenerator CreateReportGenerator()
-        {
-            return new ReportGenerator();
-        }
-
         [Fact]
-        public void SetStrategyToPdf_ExpectedBehavior()
+        public void SetStrategy_SetsCorrectStrategy()
         {
             // Arrange
-            var reportGenerator = this.CreateReportGenerator();
-            IReportStrategy reportStrategy = new PdfReportStrategy();
+            var reportGenerator = new ReportGenerator();
+            var mockStrategy = new Mock<IReportStrategy>();
 
             // Act
-            reportGenerator.SetStrategy(reportStrategy);
+            reportGenerator.SetStrategy(mockStrategy.Object);
 
-            // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            // Assert: Verify the strategy is set correctly
+            Assert.NotNull(reportGenerator.ReportStrategy);
+            Assert.Equal(mockStrategy.Object, reportGenerator.ReportStrategy);
         }
 
         [Fact]
-        public void GenerateReport_ExpectedBehavior()
+        public void GenerateReport_CallsGenerateReportOnStrategy()
         {
             // Arrange
-            var reportGenerator = this.CreateReportGenerator();
-            Sprint sprint = null;
+            var reportGenerator = new ReportGenerator();
+            var mockStrategy = new Mock<IReportStrategy>();
+            var sprint = new Sprint { Name = "Sprint 1" };
+
+            // Set the strategy
+            reportGenerator.SetStrategy(mockStrategy.Object);
 
             // Act
             reportGenerator.GenerateReport(sprint);
 
-            // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            // Assert: Verify GenerateReport was called on the strategy
+            mockStrategy.Verify(strategy => strategy.GenerateReport(sprint), Times.Once);
+        }
+
+        [Fact]
+        public void GenerateReport_DoesNotCallGenerateReport_WhenNoStrategySet()
+        {
+            // Arrange
+            var reportGenerator = new ReportGenerator();
+            var mockStrategy = new Mock<IReportStrategy>();
+            var sprint = new Sprint { Name = "Sprint 1" };
+
+            // Act
+            reportGenerator.GenerateReport(sprint);
+
+            // Assert: Verify GenerateReport was not called when no strategy is set
+            mockStrategy.Verify(strategy => strategy.GenerateReport(sprint), Times.Never);
         }
     }
 }

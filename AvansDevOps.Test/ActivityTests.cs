@@ -31,8 +31,10 @@ namespace AvansDevOps.Test
             activity.CreateActivity(name, description, assignee);
 
             // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            Assert.Equal(name, activity.Name);
+            Assert.Equal(description, activity.Description);
+            Assert.Equal(assignee, activity.Assignee);
+            Assert.False(activity.Completed);
         }
 
         [Fact]
@@ -45,8 +47,7 @@ namespace AvansDevOps.Test
             var result = activity.MarkCompleted();
 
             // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            Assert.Equal(true, result);
         }
     }
 }
