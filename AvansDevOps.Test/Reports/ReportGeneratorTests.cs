@@ -1,8 +1,6 @@
 ﻿using DevOps.Sprints;
 using Moq;
 using Report;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test.Reports
 {
@@ -10,13 +8,9 @@ namespace AvansDevOps.Test.Reports
     {
         private MockRepository mockRepository;
 
-
-
         public ReportGeneratorTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
-
-
         }
 
         private ReportGenerator CreateReportGenerator()
@@ -25,15 +19,14 @@ namespace AvansDevOps.Test.Reports
         }
 
         [Fact]
-        public void SetStrategy_StateUnderTest_ExpectedBehavior()
+        public void SetStrategyToPdf_ExpectedBehavior()
         {
             // Arrange
             var reportGenerator = this.CreateReportGenerator();
-            IReportStrategy reportStrategy = null;
+            IReportStrategy reportStrategy = new PdfReportStrategy();
 
             // Act
-            reportGenerator.SetStrategy(
-                reportStrategy);
+            reportGenerator.SetStrategy(reportStrategy);
 
             // Assert
             Assert.True(false);
@@ -41,15 +34,14 @@ namespace AvansDevOps.Test.Reports
         }
 
         [Fact]
-        public void GenerateReport_StateUnderTest_ExpectedBehavior()
+        public void GenerateReport_ExpectedBehavior()
         {
             // Arrange
             var reportGenerator = this.CreateReportGenerator();
             Sprint sprint = null;
 
             // Act
-            reportGenerator.GenerateReport(
-                sprint);
+            reportGenerator.GenerateReport(sprint);
 
             // Assert
             Assert.True(false);

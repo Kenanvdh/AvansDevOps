@@ -26,8 +26,7 @@ namespace AvansDevOps.Test.Reports
             Sprint sprint = null;
 
             // Act
-            pdfReportStrategy.GenerateReport(
-                sprint);
+            pdfReportStrategy.GenerateReport(sprint);
 
             // Assert
             Assert.True(false);

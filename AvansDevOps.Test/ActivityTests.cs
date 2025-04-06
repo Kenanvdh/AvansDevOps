@@ -1,8 +1,6 @@
 ﻿using DevOps;
 using DevOps.Persons;
 using Moq;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test
 {
@@ -25,15 +23,12 @@ namespace AvansDevOps.Test
         {
             // Arrange
             var activity = this.CreateActivity();
-            string name = null;
-            string description = null;
-            User assignee = null;
+            string name = "Activity 1";
+            string description = "Description";
+            User assignee = new ScrumMaster();
 
             // Act
-            activity.CreateActivity(
-                name,
-                description,
-                assignee);
+            activity.CreateActivity(name, description, assignee);
 
             // Assert
             Assert.True(false);

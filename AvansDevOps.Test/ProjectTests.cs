@@ -1,8 +1,6 @@
 ﻿using DevOps;
 using DevOps.Persons;
 using Moq;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test
 {
@@ -10,13 +8,9 @@ namespace AvansDevOps.Test
     {
         private MockRepository mockRepository;
 
-
-
         public ProjectTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
-
-
         }
 
         private Project CreateProject()
@@ -30,16 +24,12 @@ namespace AvansDevOps.Test
             // Arrange
             var project = this.CreateProject();
             string name = null;
-            DateOnly startDate = default(global::System.DateOnly);
-            DateOnly endDate = default(global::System.DateOnly);
-            User productOwner = null;
+            DateOnly startDate = default;
+            DateOnly endDate = default;
+            User productOwner = new ProductOwner();
 
             // Act
-            project.CreateProject(
-                name,
-                startDate,
-                endDate,
-                productOwner);
+            project.CreateProject(name, startDate, endDate, productOwner);
 
             // Assert
             Assert.True(false);
@@ -58,12 +48,7 @@ namespace AvansDevOps.Test
             User sprintMaster = null;
 
             // Act
-            project.AddSprint(
-                projectName,
-                sprintName,
-                startDate,
-                endDate,
-                sprintMaster);
+            project.AddSprint(projectName, sprintName, startDate, endDate, sprintMaster);
 
             // Assert
             Assert.True(false);
@@ -79,9 +64,7 @@ namespace AvansDevOps.Test
             Backlog backlog = null;
 
             // Act
-            project.AddBacklog(
-                projectName,
-                backlog);
+            project.AddBacklog(projectName, backlog);
 
             // Assert
             Assert.True(false);

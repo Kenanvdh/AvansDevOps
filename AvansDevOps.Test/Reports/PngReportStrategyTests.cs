@@ -1,8 +1,6 @@
 ﻿using DevOps.Sprints;
 using Moq;
 using Report;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test.Reports
 {
@@ -21,15 +19,14 @@ namespace AvansDevOps.Test.Reports
         }
 
         [Fact]
-        public void GenerateReport_StateUnderTest_ExpectedBehavior()
+        public void GenerateReport_xpectedBehavior()
         {
             // Arrange
             var pngReportStrategy = this.CreatePngReportStrategy();
             Sprint sprint = null;
 
             // Act
-            pngReportStrategy.GenerateReport(
-                sprint);
+            pngReportStrategy.GenerateReport(sprint);
 
             // Assert
             Assert.True(false);

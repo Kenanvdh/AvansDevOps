@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DevOps.Persons;
-using DevOps.Sprints;
+﻿using DevOps.Persons;
 using DevOps.BacklogItems;
 using Moq;
-using Xunit;
 
 namespace DevOps.Tests
 {

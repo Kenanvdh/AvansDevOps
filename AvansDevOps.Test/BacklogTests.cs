@@ -1,8 +1,6 @@
 ﻿using DevOps;
 using DevOps.BacklogItems;
 using Moq;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test
 {
@@ -10,13 +8,9 @@ namespace AvansDevOps.Test
     {
         private MockRepository mockRepository;
 
-
-
         public BacklogTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
-
-
         }
 
         private Backlog CreateBacklog()
@@ -32,8 +26,7 @@ namespace AvansDevOps.Test
             BacklogItem item = null;
 
             // Act
-            backlog.AddItem(
-                item);
+            backlog.AddItem(item);
 
             // Assert
             Assert.True(false);

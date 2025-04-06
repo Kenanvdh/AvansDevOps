@@ -2,10 +2,7 @@
 using DevOps.BacklogItems;
 using DevOps.Persons;
 using Moq;
-using System;
-using System.Collections.Generic;
 using Threads;
-using Xunit;
 
 namespace AvansDevOps.Test.BacklogItems
 {

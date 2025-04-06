@@ -1,41 +1,36 @@
-﻿using DevOps.Sprint.Templates;
+﻿using DevOps.Persons;
+using DevOps.Sprint.Templates;
 using DevOps.Sprints;
 using Moq;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test.Sprints.Templates
 {
-    public class FailedSprintTemplateTests
+    public class FailedSprintTemplateTests : FailedSprintTemplate
     {
         private MockRepository mockRepository;
-
-
-
-        public FailedSprintTemplateTests()
+        public FailedSprintTemplateTests(Sprint sprint) : base(new Sprint())
         {
-            this.mockRepository = new MockRepository(MockBehavior.Strict);
-
-
-        }
-
-        private FailedSprintTemplate CreateFailedSprintTemplate()
-        {
-            return new FailedSprintTemplate();
+            this.mockRepository = mockRepository;
         }
 
         [Fact]
-        public void TestMethod1()
+        public void Execute_WritesFailureMessageToConsole()
         {
             // Arrange
-            var failedSprintTemplate = this.CreateFailedSprintTemplate();
+            var sprint = new Sprint { Name = "Sprint 42" };
+            var failedSprintTemplate = new FailedSprintTemplate(sprint);
+            var user = new ScrumMaster();
+
+            using var consoleOutput = new StringWriter();
+            Console.SetOut(consoleOutput);
 
             // Act
-
+            base.Execute(user);
 
             // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
+            var output = consoleOutput.ToString().Trim();
+            Assert.Equal("Sprint 'Sprint 42' has failed. No further action will be taken.", output);
         }
+
     }
 }

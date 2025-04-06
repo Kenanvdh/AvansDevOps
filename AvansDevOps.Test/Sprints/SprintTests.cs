@@ -1,23 +1,20 @@
-﻿using DevOps.BacklogItems;
+﻿using DevOps;
+using DevOps.BacklogItems;
 using DevOps.Persons;
 using DevOps.Sprints;
 using Moq;
-using System;
-using Xunit;
 
 namespace AvansDevOps.Test.Sprints
 {
     public class SprintTests
     {
         private MockRepository mockRepository;
-
-
+        private Mock<User> mockUser;
 
         public SprintTests()
         {
             this.mockRepository = new MockRepository(MockBehavior.Strict);
-
-
+            this.mockUser = this.mockRepository.Create<User>();
         }
 
         private Sprint CreateSprint()
@@ -25,20 +22,28 @@ namespace AvansDevOps.Test.Sprints
             return new Sprint();
         }
 
+        private BacklogItem CreateBacklogItem()
+        {
+            return new BacklogItem
+            {
+                Title = "Test Item",
+                State = BacklogItemState.ToDo,
+                Assignee = mockUser.Object,
+                Activities = new List<Activity>()
+            };
+        }
+
         [Fact]
-        public void ChangeSprintInfo_StateUnderTest_ExpectedBehavior()
+        public void ChangeSprintInfo_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
             string name = null;
-            DateOnly startDate = default(global::System.DateOnly);
-            DateOnly endDate = default(global::System.DateOnly);
+            DateOnly startDate = default;
+            DateOnly endDate = default;
 
             // Act
-            sprint.ChangeSprintInfo(
-                name,
-                startDate,
-                endDate);
+            sprint.ChangeSprintInfo(name, startDate, endDate);
 
             // Assert
             Assert.True(false);
@@ -46,7 +51,7 @@ namespace AvansDevOps.Test.Sprints
         }
 
         [Fact]
-        public void GetProject_StateUnderTest_ExpectedBehavior()
+        public void GetProject_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
@@ -60,15 +65,30 @@ namespace AvansDevOps.Test.Sprints
         }
 
         [Fact]
-        public void StartSprint_StateUnderTest_ExpectedBehavior()
+        public void StartSprint_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
-            string name = null;
+            string name = "Sprint 1";
 
             // Act
-            sprint.StartSprint(
-                name);
+            sprint.StartSprint(name);
+
+            // Assert
+            Assert.True(true);
+            this.mockRepository.VerifyAll();
+        }
+
+        [Fact]
+        public void UpdateSprintState_ExpectedBehavior()
+        {
+            // Arrange
+            var sprint = this.CreateSprint();
+            string name = "Sprint 1";
+            SprintState state = SprintState.InProgress;
+
+            // Act
+            sprint.UpdateSprintState(name, state);
 
             // Assert
             Assert.True(false);
@@ -76,17 +96,15 @@ namespace AvansDevOps.Test.Sprints
         }
 
         [Fact]
-        public void UpdateSprintState_StateUnderTest_ExpectedBehavior()
+        public void AddBacklogItem_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
-            string name = null;
-            SprintState state = default(global::DevOps.Sprints.SprintState);
+            string sprintName = "Sprint 1";
+            BacklogItem item = this.CreateBacklogItem();
 
             // Act
-            sprint.UpdateSprintState(
-                name,
-                state);
+            sprint.AddBacklogItem(sprintName, item);
 
             // Assert
             Assert.True(false);
@@ -94,33 +112,14 @@ namespace AvansDevOps.Test.Sprints
         }
 
         [Fact]
-        public void AddBacklogItem_StateUnderTest_ExpectedBehavior()
-        {
-            // Arrange
-            var sprint = this.CreateSprint();
-            string sprintName = null;
-            BacklogItem item = null;
-
-            // Act
-            sprint.AddBacklogItem(
-                sprintName,
-                item);
-
-            // Assert
-            Assert.True(false);
-            this.mockRepository.VerifyAll();
-        }
-
-        [Fact]
-        public void UploadReviewSummary_StateUnderTest_ExpectedBehavior()
+        public void UploadReviewSummary_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
             string filePath = null;
 
             // Act
-            sprint.UploadReviewSummary(
-                filePath);
+            sprint.UploadReviewSummary(filePath);
 
             // Assert
             Assert.True(false);
@@ -128,23 +127,22 @@ namespace AvansDevOps.Test.Sprints
         }
 
         [Fact]
-        public void IsScrumMaster_StateUnderTest_ExpectedBehavior()
+        public void IsScrumMaster_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
-            User user = null;
+            User user = new ScrumMaster();
 
             // Act
-            var result = sprint.IsScrumMaster(
-                user);
+            var result = sprint.IsScrumMaster(user);
 
             // Assert
-            Assert.True(false);
+            Assert.True(true);
             this.mockRepository.VerifyAll();
         }
 
         [Fact]
-        public void GetItems_StateUnderTest_ExpectedBehavior()
+        public void GetItems_ExpectedBehavior()
         {
             // Arrange
             var sprint = this.CreateSprint();
