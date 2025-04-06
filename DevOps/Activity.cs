@@ -4,8 +4,8 @@ namespace DevOps
 {
     public class Activity
     {
-        public string Name { get; set; }
-        private string Description { get; set; }
+        private string? Name { get; set; } = string.Empty;
+        private string Description { get; set; } = string.Empty;
         public User Assignee { get; set; }
         public bool Completed { get; set; }
 

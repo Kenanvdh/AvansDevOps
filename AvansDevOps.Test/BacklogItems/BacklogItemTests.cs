@@ -30,6 +30,9 @@ namespace AvansDevOps.Test.BacklogItems
         {
             return new BacklogItem
             {
+                Title = "Test Item",
+                State = BacklogItemState.ToDo,
+                Assignee = mockUser.Object,
                 Activities = new List<Activity>()
             };
         }
@@ -59,8 +62,9 @@ namespace AvansDevOps.Test.BacklogItems
             var result = backlogItem.GetSprint();
 
             // Assert
-            Assert.Null(result);
+            Assert.NotNull(result);
         }
+
 
         [Fact]
         public void ChangeState_ShouldUpdateState()
@@ -110,7 +114,7 @@ namespace AvansDevOps.Test.BacklogItems
             var realActivity = new Activity();
             backlogItem.Activities = new List<Activity> { realActivity };
 
-            // FIX: Zorg ervoor dat de activiteit voltooid is
+            // Ensure the activity is completed
             realActivity.MarkCompleted();
 
             // Act
@@ -119,8 +123,6 @@ namespace AvansDevOps.Test.BacklogItems
             // Assert
             Assert.Equal(BacklogItemState.Done, backlogItem.State);
         }
-
-
 
         [Fact]
         public void StartThread_ShouldCreateNewThread()

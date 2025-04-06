@@ -4,8 +4,8 @@ namespace Threads
 {
     internal class Thread : ThreadComponent
     {
-        private List<ThreadComponent> children = new List<ThreadComponent>();
-        private User createdBy;
+        private readonly List<ThreadComponent> children = new List<ThreadComponent>();
+        private readonly User createdBy;
         private bool isClosed = false; // Thread begint open
 
         public Thread(string content, User user) : base(content)

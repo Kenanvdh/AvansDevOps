@@ -4,8 +4,8 @@ namespace Threads
 {
     public class Message : ThreadComponent
     {
-        private User createdBy;
-        private List<ThreadComponent> replies = new List<ThreadComponent>(); // Reacties op berichten
+        private readonly User createdBy;
+        private readonly List<ThreadComponent> replies = new List<ThreadComponent>(); // Reacties op berichten
 
         public Message(string content, User user) : base(content)
         {

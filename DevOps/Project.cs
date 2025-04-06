@@ -6,11 +6,11 @@ namespace DevOps
 {
     public class Project
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
         public int Version { get; set; }
-        private List<Sprints.Sprint> Sprints { get; set; }
+        private List<Sprints.Sprint> Sprints { get; }
         private Backlog Backlog { get; set; }
         private User ProductOwner { get; set; }
         public List<User> Testers { get; set; }

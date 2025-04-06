@@ -5,7 +5,7 @@
         protected string content;
         protected DateTime timestamp;
 
-        public ThreadComponent(string content)
+        protected ThreadComponent(string content)
         {
             this.content = content;
             this.timestamp = DateTime.Now;
