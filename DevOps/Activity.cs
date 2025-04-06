@@ -19,7 +19,7 @@ namespace DevOps
 
         public bool MarkCompleted()
         {            
-            return Completed;
+            return Completed = true;
         }
     }
 }
