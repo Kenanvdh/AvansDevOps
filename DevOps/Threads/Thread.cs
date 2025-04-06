@@ -2,7 +2,7 @@
 
 namespace Threads
 {
-    internal class Thread : ThreadComponent
+    public class Thread : ThreadComponent
     {
         private readonly List<ThreadComponent> children = new List<ThreadComponent>();
         private readonly User createdBy;
