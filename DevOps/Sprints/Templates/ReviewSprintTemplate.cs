@@ -1,5 +1,4 @@
-﻿using DevOps.Sprints;
-using DevOps.BacklogItems;
+﻿using DevOps.BacklogItems;
 using DevOps.Persons;
 
 namespace DevOps.Sprint.Templates

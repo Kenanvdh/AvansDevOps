@@ -1,7 +1,5 @@
-﻿using System;
-using DevOps.Factory;
+﻿using DevOps.Factory;
 using DevOps.Sprints;
-using Xunit;
 
 namespace AvansDevOps.Test.Factory
 {

@@ -4,7 +4,7 @@ namespace DevOps
 {
     public class Backlog
     {
-        private List<BacklogItem> BacklogItems { get; } = new List<BacklogItem>();
+        public List<BacklogItem> BacklogItems { get; } = new List<BacklogItem>();
 
         public void AddItem(BacklogItem item)
         {

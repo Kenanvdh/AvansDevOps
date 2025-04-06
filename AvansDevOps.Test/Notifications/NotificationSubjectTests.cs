@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Moq;
-using Moq.Protected;
+﻿using Moq;
 using Notifications;
-using Xunit;
 
 namespace AvansDevOps.Test.Notifications
 {

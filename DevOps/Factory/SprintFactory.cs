@@ -2,7 +2,7 @@
 {
     public class SprintFactory : IWorkItem<Sprints.Sprint>
     {
-        public Sprints.Sprint Create(string name, DateOnly startDate, DateOnly endDate)
+        public virtual Sprints.Sprint Create(string name, DateOnly startDate, DateOnly endDate)
         {
             Sprints.Sprint sprint = new Sprints.Sprint();
             sprint.Name = name;

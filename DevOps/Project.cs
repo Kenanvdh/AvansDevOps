@@ -10,9 +10,9 @@ namespace DevOps
         public DateOnly StartDate { get; set; }
         public DateOnly EndDate { get; set; }
         public int Version { get; set; }
-        private List<Sprints.Sprint> Sprints { get; }
-        private Backlog Backlog { get; set; }
-        private User ProductOwner { get; set; }
+        public List<Sprints.Sprint> Sprints { get; set; }
+        public Backlog Backlog { get; set; }
+        public User ProductOwner { get; set; }
         public List<User> Testers { get; set; }
 
         public ProjectFactory ProjectFactory;
@@ -35,18 +35,15 @@ namespace DevOps
 
         public void AddSprint(string projectName, string sprintName, DateOnly startDate, DateOnly endDate, User sprintMaster)
         {
-            Sprints.Sprint sprint = SprintFactory.Create(sprintName, startDate, endDate);
-            sprint.SprintMaster = sprintMaster;
-            if (Name == projectName)
-            {
-                Sprints.Add(sprint);
-            }
-            else
+            if (Name != projectName)
             {
                 Console.WriteLine($"Project {projectName} not found.");
+                return;
             }
 
-            Console.WriteLine($"Sprint {sprintName} created.");
+            var sprint = SprintFactory.Create(sprintName, startDate, endDate);
+            sprint.SprintMaster = sprintMaster;
+            Sprints.Add(sprint);
         }
 
         public void AddBacklog(string projectName, Backlog backlog)
