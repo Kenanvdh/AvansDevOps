@@ -124,7 +124,7 @@ namespace DevOps.BacklogItems
         {
             if (discussionThread == null)
             {
-                throw new InvalidOperationException("No thread exists for BacklogItem: {Title}");
+                throw new InvalidOperationException($"No thread exists for BacklogItem: {Title}");
             }
 
             Console.WriteLine($"Thread for BacklogItem: {Title}");
